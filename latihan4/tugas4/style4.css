@@ -1,0 +1,26 @@
+body {
+    background-image: url("13.jpg");
+   }
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    margin-top: 50px;
+}
+table{
+    background-color: aqua;
+    margin: auto;
+    text-align: center;
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+table img{
+    width: 300px;
+    height:445px;
+    margin-left: 0%;
+    margin-top: 0%;
+    
+}
