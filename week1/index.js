@@ -39,49 +39,49 @@ app.get("/api/food",(req, res)=>{
     })
 })
 
-// app.post("/api/food", (req, res)=>{
-//     let {body} = req;
-//     let sql = " INSERT INTO foods SET ?";
-//     koneksiDB.query(sql, body,(err, result)=>{
-//         if(err){
-//             res.send({
-//                 msg: "add data error",
-//                 status: 500,
-//                 err,
-//             })
-//         }else{
-//             let newBody = {
-//                 id: result.insertId,
-//                 ...body,
-//             };
-//             res.send({
-//                 msg: "add data sucess",
-//                 status: 200,
-//                 data: newBody,
-//             })
-//         }
-//     })
-// })
+app.post("/api/food", (req, res)=>{
+    let {body} = req;
+    let sql = " INSERT INTO foods SET ?";
+    koneksiDB.query(sql, body,(err, result)=>{
+        if(err){
+            res.send({
+                msg: "add data error",
+                status: 500,
+                err,
+            })
+        }else{
+            let newBody = {
+                id: result.insertId,
+                ...body,
+            };
+            res.send({
+                msg: "add data sucess",
+                status: 200,
+                data: newBody,
+            })
+        }
+    })
+})
 
-// app.get("/api/food/:id", (req, res)=>{
-//     let {id} = req.params;
-//     let sql = `SELECT * FROM foods WHERE id=${id}`;
-//     koneksiDB.query(sql,(err, result)=>{
-//         if(err){
-//             res.send({
-//                 msg: "GET DATA ID ERROR",
-//                 status: 500,
-//                 err,
-//             })
-//         }else{
-//             res.send({
-//                 msg: "GET DATA ID SUCCESS",
-//                 status:200,
-//                 data: result
-//             })
-//         }
-//     })
-// })
+app.get("/api/food/:id", (req, res)=>{
+    let {id} = req.params;
+    let sql = `SELECT * FROM foods WHERE id=${id}`;
+    koneksiDB.query(sql,(err, result)=>{
+        if(err){
+            res.send({
+                msg: "GET DATA ID ERROR",
+                status: 500,
+                err,
+            })
+        }else{
+            res.send({
+                msg: "GET DATA ID SUCCESS",
+                status:200,
+                data: result
+            })
+        }
+    })
+})
 
 //delete
 app.delete("/api/food/:id", (req, res)=>{
